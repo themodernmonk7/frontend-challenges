@@ -3,9 +3,10 @@ import { Link } from "react-router-dom"
 
 const LoginForm = () => {
   const [value, setValue] = useState({
-    email: "",
-    password: "",
+    email: "david@test.com",
+    password: "password",
   })
+  const [errorMessage, setErrorMessage] = useState("")
 
   const handleChange = (e) => {
     const name = e.target.name
@@ -13,11 +14,25 @@ const LoginForm = () => {
     setValue({ ...value, [name]: input })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log("Login success")
-    window.alert("Login Successful")
-    setValue({ email: "", password: "" })
+    // setValue({ email: "", password: "" })
+    console.log("login success")
+    try {
+      const response = await fetch("some url", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      })
+      const data = await response.json()
+      setErrorMessage(data.msg)
+    } catch (error) {
+      //   console.log(error)
+      //   setErrorMessage(error.msg)
+      console.log(error.msg)
+    }
   }
 
   return (
@@ -27,6 +42,7 @@ const LoginForm = () => {
           Welcome to Devtools Tech
         </h1>
         <h2 className=" text-3xl ">Login</h2>
+        <p>{errorMessage}</p>
         <form action="" className=" space-y-4 " onSubmit={handleSubmit}>
           <div className=" ">
             <input
@@ -49,7 +65,7 @@ const LoginForm = () => {
               type="password"
               placeholder="Password"
               className=" w-full"
-              pattern="^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)(?=.*?[\W_]).{8,}$"
+              //   pattern="^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)(?=.*?[\W_]).{8,}$"
               title="Please 8 character password"
               min={8}
             />
