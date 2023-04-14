@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 
 const LoginForm = () => {
   const [value, setValue] = useState({
-    email: "david@test.com",
-    password: "password",
+    email: "",
+    password: "",
   })
   const [errorMessage, setErrorMessage] = useState("")
 
