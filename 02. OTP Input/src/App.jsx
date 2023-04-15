@@ -1,8 +1,16 @@
+import { useState } from "react"
+import { OtpInput } from "./components"
+
 function App() {
+  const [otp, setOtp] = useState("")
+
+  const onChange = () => {
+    setOtp(otp)
+  }
   return (
-    <h1 className=" my-28 bg-yellow-400 py-2 text-center text-3xl ">
-      Vite + React + TailwindCSS template
-    </h1>
+    <section className=" grid h-screen place-items-center ">
+      <OtpInput value={otp} valueLength={6} onChange={onChange} />
+    </section>
   )
 }
 
