@@ -1,9 +1,7 @@
+import LabelFilter from "./components/LabelFilter"
+
 function App() {
-  return (
-    <h1>
-      Challenge
-    </h1>
-  )
+  return <LabelFilter />
 }
 
 export default App
