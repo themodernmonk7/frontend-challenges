@@ -1,5 +1,7 @@
+import { Todo } from "./components/Todo"
+
 function App() {
-  return <h1>Challenge</h1>
+  return <Todo />
 }
 
 export default App
