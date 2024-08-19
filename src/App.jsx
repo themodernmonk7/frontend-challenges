@@ -1,5 +1,15 @@
+import { useGeolocation } from "./hook/useGeolocation"
+
 function App() {
-  return <h1>Challenge</h1>
+  const { coords, error } = useGeolocation()
+  console.log(error)
+  return (
+    <div>
+      <p>Latitude: {coords?.latitude}</p>
+      <p>Longitude: {coords?.longitude}</p>
+      {error && <p> {error} </p>}
+    </div>
+  )
 }
 
 export default App
