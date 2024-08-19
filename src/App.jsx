@@ -1,5 +1,15 @@
+import { useLocalStorage } from "./hook/useLocalStorage"
+
 function App() {
-  return <h1>Challenge</h1>
+  const { value, setValue } = useLocalStorage("some_key", "")
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+  return (
+    <div>
+      <input value={value} onChange={handleChange} type="text" />
+    </div>
+  )
 }
 
 export default App
