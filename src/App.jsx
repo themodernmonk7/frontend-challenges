@@ -1,7 +1,9 @@
+import DetectIdle from "./components/DetectIdle"
 import { Products } from "./components/Products"
 import { useClickCounter } from "./hooks/useClickCounter"
 import { useClickTracker } from "./hooks/useClickTracker"
 import { useFetch } from "./hooks/useFetch"
+import { useIdle } from "./hooks/useIdle"
 import { useMousePosition } from "./hooks/useMousePosition"
 import { IDLE, PENDING, REJECTED } from "./utils/actions/actions"
 const API_URL = "https://fakestoreapi.com/products"
@@ -36,7 +38,8 @@ function App() {
         </p>
         <button onClick={handleClickTracker}>Click Me</button>
       </div> */}
-      <Products data={data} />
+      {/* <Products data={data} /> */}
+      <DetectIdle />
     </section>
   )
 }
